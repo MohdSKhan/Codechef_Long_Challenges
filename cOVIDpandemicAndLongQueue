@@ -1,0 +1,45 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+void covid(int* arr,int n){
+    int numberOfZero=0;
+    for(int i=0;i<n;i++){
+        if(arr[i]==1){
+            i++;
+            while(arr[i]!=1 and i<n){
+                numberOfZero++;
+                i++;
+            }
+            if(i==n){
+                cout<<"YES"<<endl;
+                return;
+            }
+
+            if(numberOfZero!=5){
+                cout<<"NO"<<endl;
+                return;
+            }
+            numberOfZero=0;
+             i--;
+
+        }
+
+
+    }
+}
+int main()
+{
+    int test;
+    cin>>test;
+    while(test--){
+        int n;
+        cin>>n;
+        int arr[n];
+        for(int i=0;i<n;i++)
+            cin>>arr[i];
+        covid(arr,n);
+
+    }
+}
+
+
