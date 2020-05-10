@@ -1,0 +1,57 @@
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int sellCarsOptimised(int* arr,int n){
+        long long int profit=0;
+        int j=0;
+        int newPrice=0;
+        sort(arr,arr+n);
+        //profit+=arr[n-1];
+        for(int i=n-1;i>=0;i--){
+            newPrice=arr[i]-j;
+            if(newPrice<0){
+                newPrice=0;
+            }
+           profit+=newPrice;
+           j++;
+        }
+    return profit;
+
+}
+
+int sellCars(int* arr,int n){
+        long long int profit=0;
+        int j=1;
+        int newPrice=0;
+        sort(arr,arr+n);
+
+        for(int i=n-1;i>=0;i--){
+                profit+=arr[i];
+                n--;
+                for(int j=0;j<n;j++){
+                    arr[j]=arr[j]-1;
+                    if(arr[j]<0)
+                        arr[j]=0;
+                }
+        }
+    return profit;
+
+}
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int arr[n];
+
+        for(int i=0;i<n;i++)
+            cin>>arr[i];
+        cout<<sellCarsOptimised(arr,n)<<endl;
+        // cout<<sellCars(arr,n)<<endl;
+    }
+}
+
