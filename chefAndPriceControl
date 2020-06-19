@@ -1,0 +1,27 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int test; cin>>test;
+        while(test--){
+            int n,k,finalSum=0;
+            cin>>n>>k;
+            int arr[n];
+            for(int i=0;i<n;i++){//n
+                cin>>arr[i];
+                if(arr[i]>k){
+                    finalSum+=arr[i]-k;
+                }
+            }
+            cout<<finalSum<<endl;
+
+        }
+
+
+
+
+}
+
+
+
