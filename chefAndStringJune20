@@ -1,0 +1,33 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int test; cin>>test;
+        while(test--){
+            string str; cin>>str; int ans=0;
+            for(int i=0;i<str.length()-1;i++){//n
+                if(str[i]=='x'){
+                    if(str[i+1]=='y'){
+                        ans++;
+                        i++;
+                    }
+                }
+                else{//y
+                   if(str[i+1]=='x'){
+                        ans++;
+                        i++;
+                    }
+                }
+            }
+            cout<<ans<<endl;
+
+        }
+
+
+
+
+}
+
+
+
