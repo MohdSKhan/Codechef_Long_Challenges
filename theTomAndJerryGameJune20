@@ -1,0 +1,31 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+long long int jerry(long long int ts){
+    long long int ans;
+    if(ts%2 != 0){//odd
+        ans=(ts-1)/2;
+    }
+    else{//even
+        while(ts%2==0){
+            ts=ts/2;
+        }
+        ans=ts/2;
+    }
+    return ans;
+}
+int main()
+{
+        int test; cin>>test;
+        while(test--){
+            long long int ts; cin>>ts;
+            cout<<jerry(ts)<<endl;
+        }
+
+
+
+
+}
+
+
+
