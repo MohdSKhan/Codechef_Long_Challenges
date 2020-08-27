@@ -1,0 +1,44 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+#define lli long long int
+#define ulli unsigned long long int
+#define MOD 1000000007
+void solve(int k){
+    char arr[8][8];//not needed as we had to just print the configuration.........
+    int cnt=1,j;
+    for(int i=0;i<8;i++){
+        for(j=0;j<8;j++){
+            if(cnt > k){
+                arr[i][j]='X';
+            }
+            else{
+               arr[i][j]='.';
+                cnt++;
+            }
+
+        }
+    }
+
+    arr[0][0]='O';
+
+    for(int i=0;i<8;i++){
+        for(int j=0;j<8;j++){
+            cout<<arr[i][j];
+        }
+        cout<<endl;
+    }
+}
+int main()
+{
+        int test; cin>>test;
+        while(test--){
+            int k;
+            cin>>k;
+            solve(k);
+            //cout<<endl;
+
+        }
+}
+
+
