@@ -1,0 +1,61 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+#define lli long long int
+#define ulli unsigned long long int
+#define MOD 1000000007
+int digits(int num){
+    int sum=0;
+    while(num>0){
+        int r= num%10;
+        sum+=r;
+        num=num/10;
+    }
+    return sum;
+}
+void solve(vector<pair<int,int> > v){
+    int chef=0,morty=0;
+    for(int i=0;i<v.size();i++){
+        int chefPower= digits(v[i].first);
+        int mortyPower= digits(v[i].second);
+        if(chefPower > mortyPower){
+            chef++;
+        }
+        else if(chefPower < mortyPower){
+            morty++;
+        }
+        else{
+            chef++; morty++;
+        }
+    }
+
+    if(chef > morty){
+        cout<<"0 "<<chef<<endl;
+    }
+    else if(chef < morty){
+        cout<<"1 "<<morty<<endl;
+    }
+    else{
+        cout<<"2 "<<chef<<endl;
+    }
+}
+int main()
+{
+        int test; cin>>test;
+        while(test--){
+            int n,x,y;
+            cin>>n;
+            vector<pair<int,int> > v;
+            for(int i=0;i<n;i++){
+                cin>>x>>y;
+                v.push_back(make_pair(x,y));
+            }
+            solve(v);
+        }
+
+
+
+
+}
+
+
