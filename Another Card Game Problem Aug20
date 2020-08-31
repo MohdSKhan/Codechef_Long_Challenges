@@ -1,0 +1,52 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+#define lli long long int
+#define ulli unsigned long long int
+#define MOD 1000000007
+void solve(int pc,int pr){
+    int pcd=1,prd=1;
+//    while(pc/10 > 0){
+//        pcd++;
+//        pc -= 9;
+//    }
+//
+//    while(pr/10 > 0){
+//        prd++;
+//        pr -= 9;
+//    }
+
+    if(pc%9==0){
+        pcd = pc/9;
+    }
+    else{
+        pcd = pc/9 + 1;
+    }
+
+    if(pr%9==0){
+        prd = pr/9;
+    }
+    else{
+        prd = pr/9 + 1;
+    }
+
+
+    if(pcd < prd){
+        cout<<"0 "<<pcd<<endl;
+    }
+    else{
+        cout<<"1 "<<prd<<endl;
+    }
+
+}
+int main()
+{
+            int test;   cin>>test;
+            while(test--){
+                 int pc,pr;
+                cin>>pc>>pr;
+                solve(pc,pr);
+            }
+}
+
+
