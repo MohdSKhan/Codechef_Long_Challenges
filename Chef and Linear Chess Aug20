@@ -1,0 +1,37 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+#define lli long long int
+#define ulli unsigned long long int
+#define MOD 1000000007
+int solve(int* arr,int n,int k){
+    int minMoves= INT_MAX;
+    int ans= -1;
+    for(int i=0;i<n;i++){
+        if(k%arr[i]==0){
+            if(minMoves > (k/arr[i])){
+                minMoves= k/arr[i];
+                ans= arr[i];
+            }
+        }
+    }
+    return ans;
+}
+
+int main()
+{
+            int test;   cin>>test;
+            while(test--){
+                int n,k;
+                cin>>n>>k;
+                int arr[n];
+                for(int i=0;i<n;i++){
+                    cin>>arr[i];
+                }
+                cout<<solve(arr,n,k)<<endl;
+            }
+
+
+}
+
+
