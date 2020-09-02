@@ -1,0 +1,31 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+#define lli long long int
+#define ulli unsigned long long int
+#define MOD 1000000007
+int solve(int h,int p){
+
+    while(h>0 and p>0){
+        h = h-p;
+        p = p/2;
+    }
+    if(h<=0){
+        return 1;
+    }
+    return 0;
+}
+
+int main()
+{
+            int test;   cin>>test;
+            while(test--){
+                    int h,p;
+                    cin>>h>>p;
+                    cout<<solve(h,p)<<endl;
+            }
+
+
+}
+
+
