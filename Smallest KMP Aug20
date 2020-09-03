@@ -1,0 +1,60 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+#define lli long long int
+#define ulli unsigned long long int
+#define MOD 1000000007
+void solve(string s,string p){
+    string ans,ans2,prefix,suffix,prefix2,suffix2;
+    int freqs[26]={0};
+    int freqp[26]={0};
+    for(int i=0;i<s.length();i++){
+        freqs[s[i]-'a']++;
+    }
+    for(int i=0;i<p.length();i++){
+        freqp[p[i]-'a']++;
+    }
+    for(int i=0;i<s.length();i++){
+        if(s[i] < p[0] and freqs[s[i]-'a'] > freqp[s[i]-'a']){
+            prefix += s[i];
+            prefix2 += s[i];
+            freqs[s[i]-'a']--;
+        }
+        else if(s[i] == p[0] and freqs[s[i]-'a'] > freqp[s[i]-'a']){
+                prefix += s[i];
+                suffix2 += s[i];
+                freqs[s[i]-'a']--;
+        }
+        else if(s[i] > p[0] and freqs[s[i]-'a'] > freqp[s[i]-'a']){
+            suffix += s[i];
+            suffix2 += s[i];
+            freqs[s[i]-'a']--;
+        }
+    }
+    sort(suffix.begin(), suffix.end());
+    sort(suffix2.begin(), suffix2.end());
+    sort(prefix.begin(), prefix.end());
+    sort(prefix2.begin(), prefix2.end());
+    ans = prefix + p + suffix;
+    ans2 = prefix2 + p + suffix2;
+    if(ans < ans2){
+        cout<<ans;
+    }
+    else{
+        cout<<ans2;
+    }
+
+
+}
+int main()
+{
+            int test;   cin>>test;
+            while(test--){
+                 string s,p;
+                cin>>s>>p;
+                solve(s,p);
+                cout<<endl;
+            }
+}
+
+
