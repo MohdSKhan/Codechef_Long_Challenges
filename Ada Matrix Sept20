@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define lli long long int
+#define ulli unsigned long long int
+#define MOD 1000000007
+void transpose(int arr[65][65],int n){
+    for(int i=0;i<=n;i++){
+        for(int j=i+1;j<=n;j++){
+            swap(arr[i][j],arr[j][i]);
+        }
+    }
+//    for(int i=0;i<n;i++){
+//        for(int j=0;j<n;j++){
+//            cout<<arr[i][j]<<" ";
+//        }cout<<endl;
+//    }
+}
+
+int solve(int arr[65][65],int n){
+    int ans=0;
+    while(1){//n^2???????????????????????????????????????????
+        int misplaced=0;
+        int L=0;
+        for(int j=1;j<n;j++){
+            if(arr[0][j] != j+1){
+                misplaced=1;
+                L=j;
+            }
+        }
+        if(misplaced==0){
+            return ans;
+        }
+        ans++;
+        transpose(arr,L);
+    }
+
+}
+
+int main()
+{
+            int test;   cin>>test;
+            while(test--){
+                 int n;
+                cin>>n;
+                int arr[65][65];
+                for(int i=0;i<n;i++){
+                    for(int j=0;j<n;j++){
+                        cin>>arr[i][j];
+                    }
+                }
+                cout<<solve(arr,n)<<endl;
+            }
+}
+
+
+
