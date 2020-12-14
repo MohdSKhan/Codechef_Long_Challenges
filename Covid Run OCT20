@@ -1,0 +1,37 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+#define lli long long int
+#define ulli unsigned long long int
+#define MOD 1000000007
+string solve(int n,int k,int x,int y){
+    int repeat= x;
+    do{
+        x= (x+k)%n;
+        if(x==y){
+            return "YES";
+        }
+    }while(x != repeat);
+    return "NO";
+//    do{
+//        x= (x+k)%n;
+//        if(x==y){
+//            return "YES";
+//        }
+//    }while(x+k <= n);
+//    return "NO";
+}
+
+
+int main()
+{
+            int test;   cin>>test;
+            while(test--){
+                 int n,k,x,y;
+                cin>>n>>k>>x>>y;
+                cout<<solve(n,k,x,y)<<endl;
+            }
+}
+
+
+
