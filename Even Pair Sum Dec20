@@ -1,0 +1,39 @@
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define lli long long int
+#define ulli unsigned long long int
+#define MOD 1000000007
+lli solve(int a,int b){
+    lli ans=0;
+    lli minvalue= min(a,b);
+    lli maxvalue= max(a,b);
+    lli eveninMin= minvalue/2;
+    lli oddinMin= minvalue-eveninMin;
+    ans += eveninMin*(maxvalue/2);
+    if(maxvalue&1){//odd
+        ans += oddinMin*((maxvalue/2) + 1);
+    }
+    else{
+        ans += oddinMin*(maxvalue/2);
+    }
+    return ans;
+}
+
+int main()
+{
+    int test;
+    cin>>test;
+    while(test--){
+        int a,b;
+        cin>>a>>b;
+        cout<<solve(a,b)<<endl;
+    }
+
+
+
+}
+
+
+
