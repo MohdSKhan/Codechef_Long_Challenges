@@ -1,0 +1,56 @@
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define lli long long int
+#define ulli unsigned long long int
+#define MOD 1000000007
+int solve(int* arr,int n,int d){
+    int days=0;
+    int risky=0, nonrisky;
+    for(int i=0;i<n;i++){
+        if(arr[i] <= 9 or arr[i] >= 80){
+            risky++;
+        }
+    }
+    nonrisky = n-risky;
+
+    if((risky%d) != 0){
+        days += ((risky/d) + 1);
+    }
+    else{
+        days += risky/d;
+    }
+
+    if((nonrisky%d) != 0){
+        days += ((nonrisky/d) + 1);
+    }
+    else{
+        days += nonrisky/d;
+    }
+
+
+
+    return days;
+}
+
+int main()
+{
+    int test;
+    cin>>test;
+    while(test--){
+        int n,d;
+        cin>>n>>d;
+        int arr[n];
+        for(int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        cout<<solve(arr,n,d)<<endl;
+    }
+
+
+
+}
+
+
+
