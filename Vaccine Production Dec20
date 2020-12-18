@@ -1,0 +1,45 @@
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define lli long long int
+#define ulli unsigned long long int
+#define MOD 1000000007
+int solve(int d1,int v1,int d2,int v2,int p){
+    int days=0;
+    int vaccLeft= p;
+    int minDays= min(d1,d2);
+    int maxDays= max(d1,d2);
+    int minVacc;
+    if(minDays==d2){
+        minVacc= v2;
+    }
+    else{
+        minVacc= v1;
+    }
+    days += minDays-1;
+        for(int i=1;i<=maxDays-minDays;i++){
+            if(vaccLeft<=0){
+                return days;
+            }
+            vaccLeft -= minVacc;
+            days++;
+        }
+
+    days += vaccLeft/(v1+v2);
+    if(vaccLeft%(v1+v2) != 0){
+        return days+1;
+    }
+    return days;
+}
+
+int main()
+{
+    int d1,v1,d2,v2,p;
+    cin>>d1>>v1>>d2>>v2>>p;
+    cout<<solve(d1,v1,d2,v2,p)<<endl;
+
+}
+
+
+
