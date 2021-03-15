@@ -1,0 +1,48 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+#define lli long long int
+#define ulli unsigned long long int
+#define MOD 1000000007
+int solve(string s){
+    int groups=0;
+    int n= s.size();
+    bool zerostart= true;
+    for(int i=0;i<n;i++){
+        if(s[i]=='0'){
+            zerostart= true;
+        }
+        else if(zerostart and s[i]=='1'){
+            groups++;
+            zerostart= false;
+        }
+    }
+
+    // for(int i=0;i<n;i++){
+    //     if(s[i]=='1'){
+    //         groups++; i++;
+    //     }
+    //     else{
+    //         continue;
+    //     }
+    //     while(i<n and s[i]=='1'){
+    //         i++;
+    //     }
+    // }
+
+    return groups;
+}
+
+
+int main()
+{
+            int test; cin>>test;
+            while(test--){
+                string s; cin>>s;
+                cout<<solve(s)<<endl;
+            }
+
+}
+
+
+
